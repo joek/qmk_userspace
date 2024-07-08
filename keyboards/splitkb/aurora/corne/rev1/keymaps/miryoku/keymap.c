@@ -4,7 +4,44 @@
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
+#define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
 
+
+enum unicode_names {
+    AE_LOWER,
+    AE_UPPER,
+    OE_LOWER,
+    OE_UPPER,
+    UE_LOWER,
+    UE_UPPER,
+    SZ,
+    EUR_SIGN,
+    ROCKET,
+    POO,
+    GHOST,
+    ALIEN,
+    INVADER,
+    BEER,
+    COOKIE,
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+    [AE_LOWER] = 0x00E4,
+    [AE_UPPER] = 0x00C4,
+    [OE_LOWER] = 0x00F6,
+    [OE_UPPER] = 0x00D6,
+    [UE_LOWER] = 0x00FC,
+    [UE_UPPER] = 0x00DC,
+    [SZ] = 	0x00DF,
+    [EUR_SIGN] = 0x20AC,
+    [ROCKET] = 0x1F680,
+    [POO] = 0x1F4A9,
+    [GHOST] = 0x1F47B,
+    [ALIEN] = 0x1F47D,
+    [INVADER] = 0x1F47E,
+    [BEER] = 0x1F37A,
+    [COOKIE] = 0x1F36A,
+};
 
 void keyboard_pre_init_user(void) {
   // Set our LED pin as output

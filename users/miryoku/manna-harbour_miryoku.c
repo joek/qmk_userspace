@@ -7,7 +7,6 @@
 
 #include "manna-harbour_miryoku.h"
 
-#define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
 
 // Additional Features double tap guard
 
@@ -99,27 +98,7 @@ const uint16_t PROGMEM toprowcombos_rightindex[] = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM bottomrowcombos_leftpinkie[] = {KC_H, KC_COMM, COMBO_END};
 
 
-enum unicode_names {
-    AE_LOWER,
-    AE_UPPER,
-    OE_LOWER,
-    OE_UPPER,
-    UE_LOWER,
-    UE_UPPER,
-    SZ,
-    EUR_SIGN,
-};
 
-const uint32_t PROGMEM unicode_map[] = {
-    [AE_LOWER] = 0x00E4,
-    [AE_UPPER] = 0x00C4,
-    [OE_LOWER] = 0x00F6,
-    [OE_UPPER] = 0x00D6,
-    [UE_LOWER] = 0x00FC,
-    [UE_UPPER] = 0x00DC,
-    [SZ] = 	0x00DF,
-    [EUR_SIGN] = 0x20AC,
-};
 
 combo_t key_combos[] = {
   COMBO(toprowcombos_leftpinkie, UP(AE_LOWER, AE_UPPER)),
