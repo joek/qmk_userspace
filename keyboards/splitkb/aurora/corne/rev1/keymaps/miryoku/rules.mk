@@ -5,6 +5,7 @@ UNICODEMAP_ENABLE = yes
 WPM_ENABLE = yes
 SPLIT_WPM_ENABLE = yes
 
+CONSOLE_ENABLE=yes
 
 
 # Setup:

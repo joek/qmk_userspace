@@ -6,6 +6,13 @@
 
 #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
 
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  debug_matrix=true;
+  debug_enable=true;
+  debug_keyboard=true;
+  //debug_mouse=true;
+}
 
 enum unicode_names {
     AE_LOWER,
