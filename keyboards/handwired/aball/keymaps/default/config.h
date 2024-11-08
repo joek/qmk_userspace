@@ -17,18 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
-/* key matrix size */
-#define MATRIX_ROWS 1
-#define MATRIX_COLS 1
-
-#define DIRECT_PINS {{NO_PIN}}
-
 #define WS2812_DI_PIN F6
 #define RGBLIGHT_LED_COUNT 8
 
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
 
-#define ADNS9800_CS_PIN F7
-#define POINTING_DEVICE_INVERT_X
