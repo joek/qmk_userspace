@@ -30,6 +30,8 @@ enum unicode_names {
     INVADER,
     BEER,
     COOKIE,
+    CHECK,
+    DECLINE
 };
 
 const uint32_t PROGMEM unicode_map[] = {
@@ -48,6 +50,8 @@ const uint32_t PROGMEM unicode_map[] = {
     [INVADER] = 0x1F47E,
     [BEER] = 0x1F37A,
     [COOKIE] = 0x1F36A,
+    [CHECK] = 0x2705,
+    [DECLINE] = 0x274C,
 };
 
 void keyboard_pre_init_user(void) {
