@@ -4,7 +4,6 @@
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
-#define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
 
 void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
@@ -74,6 +73,17 @@ uint32_t anim_sleep = 0;
 uint8_t current_hamster_frame = 0;
 bool hamster_up = true;
 char wpm_str[10];
+static inline const char* unicode_mode_name(void) {
+    switch (get_unicode_input_mode()) {
+        case UNICODE_MODE_LINUX:      return "Linux";
+        case UNICODE_MODE_WINCOMPOSE: return "WinCompose";
+        case UNICODE_MODE_MACOS:      return "Mac";
+        case UNICODE_MODE_WINDOWS:    return "Windows";
+        case UNICODE_MODE_BSD:        return "BSD";
+        case UNICODE_MODE_EMACS:      return "Emacs";
+        default:                      return "UnicodeOff";
+    }
+}
 
 static void render_hamster(void) {
 
@@ -312,8 +322,10 @@ void render_wpm(void){
     };
     oled_write_raw_P(logo_1, LOGO_FRAME_SIZE);
     oled_set_cursor(0,0);
-    sprintf(wpm_str, "WPM: %03d", get_current_wpm());
-    oled_write(wpm_str, false);
+    char uc_buf[20];
+    snprintf(uc_buf, sizeof(uc_buf), "%s", unicode_mode_name());
+    oled_set_cursor(0,1);
+    oled_write(uc_buf, false);
 }
 
 bool oled_task_user(void) {
@@ -325,7 +337,7 @@ bool oled_task_user(void) {
     if(get_current_wpm() != 000) {
         if(timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
             anim_timer = timer_read32();
-            if (!is_keyboard_master()) {
+            if (is_keyboard_master()) {
                 render_wpm();
             } else {
                 render_hamster();

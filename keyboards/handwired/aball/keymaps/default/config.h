@@ -17,9 +17,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define WS2812_DI_PIN F6
+#define WS2812_DI_PIN D3
 #define RGBLIGHT_LED_COUNT 8
 
-#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#define RGBLIGHT_DEFAULT_MODE (RGBLIGHT_MODE_RAINBOW_MOOD	 + 2)
+#define RGBLIGHT_DEFAULT_SPD 10
 
+
+#define OLED_DISPLAY_128X64
+#define RGBLIGHT_LIMIT_VAL 128
